@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_performance: 2024-04-23 09:35:46
+  start_hour_performance: 2024-04-23 09:35:46
+  end_hour_performance: 2024-04-23 09:35:46
+  spectacle: one
+
+two:
+  date_performance: 2024-04-23 09:35:46
+  start_hour_performance: 2024-04-23 09:35:46
+  end_hour_performance: 2024-04-23 09:35:46
+  spectacle: two
