@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date_reservation: 2024-04-23 09:28:26
+  hour_reservation: 2024-04-23 09:28:26
+  buyer: one
+
+two:
+  date_reservation: 2024-04-23 09:28:26
+  hour_reservation: 2024-04-23 09:28:26
+  buyer: two
