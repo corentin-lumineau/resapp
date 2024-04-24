@@ -59,7 +59,16 @@
  
  a {
     text-decoration: none;
-    color: black;
+ }
+
+ ul {
+   list-style-type: none;
+   margin: unset;
+   padding: unset;
+ }
+
+ li {
+   text-decoration: none;
  }
  
  .error {
@@ -70,3 +79,19 @@
     padding: 5px;
     font-size: 1.5em;
  }
+
+ ::-webkit-scrollbar {
+   background: white;
+   width: 5px;
+   border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+   background: black;
+   border-radius: 50px;
+}
+
+::-webkit-scrollbar-track {
+   box-shadow: inset 0 0 5px grey; 
+   border-radius: 50px;
+}

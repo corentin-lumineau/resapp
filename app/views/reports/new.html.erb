@@ -1,12 +1,13 @@
+<%= render 'shared/navbar'%>
 <div class="main-container">
-    <%= render 'shared/navbar'%>
     <% flash.each do |key, message|%>
         <div class="error"><%= message%></div>
     <%end%>
+
     <div class="form-container">
        <%= form_with model: @report, url: reports_path, class: "report-form" do |f| %>
-        <%= f.file_field :file %>
-        <%= f.submit "Créer le rapport"%>
+        <%= f.file_field :file, class:"" %>
+        <%= f.submit "Créer le rapport", class: "button-1"%>
        <%end%>
     </div>
 </div>
