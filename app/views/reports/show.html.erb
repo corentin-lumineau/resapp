@@ -1,27 +1,31 @@
 <%= render "shared/navbar"%>
 <div class="show-report-container">
-    <div class="report-item">
-        <h3>Nombre de réservations</h3>
-        <p><%= @report.reservations.count %></p>
+    <div class="show-report-sub-container">
+        <div class="report-item">
+            <h3>Nombre de réservations</h3>
+            <p><%= @report.reservations.count %></p>
+        </div>
+        <div class="report-item">
+            <h3>Nombre d'acheteurs uniques</h3>
+            <p><%= @report.buyers.count%></p>
+        </div>
+        <div class="report-item">
+            <h3>Age moyen</h3>
+            <p><%= @report.get_report_average_age%></p>
+        </div>
     </div>
-    <div class="report-item">
-        <h3>Nombre d'acheteurs uniques</h3>
-        <p><%= @report.buyers.count%></p>
+    <div class="show-report-sub-container">
+        <div class="report-item">
+            <h3>Coût moyen par performance</h3>
+            <ul>
+                <% @report.get_report_average_performance_cost.each do |data|%>
+                <li class="report-sub-item">
+                    <p><%=data[:name]%></p>
+                    <p><%=format_date(data[:date])%></p>
+                    <p><%="#{data[:average_price]} euros"%></p>
+                </li>
+                <%end%>
+            </ul>
+        </div>
     </div>
-    <div class="report-item">
-        <h3>Age moyen</h3>
-        <p><%= @report.get_report_average_age%></p>
-    </div>
-    <div class="report-item">
-        <h3>Coût moyen par performance</h3>
-        <ul>
-            <% @report.get_report_average_performance_cost.each do |data|%>
-            <li class="report-sub-item">
-                <p><%=data[:name]%></p>
-                <p><%=format_date(data[:date])%></p>
-                <p><%="#{data[:average_price]} euros"%></p>
-            </li>
-            <%end%>
-        </ul>
-    </div> 
 </div>

@@ -7,6 +7,8 @@ class Report < ApplicationRecord
     has_many :report_performances, dependent: :destroy
     has_many :performances, through: :report_performances
 
+    validates :name, presence: true
+
     def get_report_average_age
         ages = buyers.includes(:report_buyers).pluck(:age).compact
         average = ages.inject{ |sum, el| sum + el }.to_f / ages.size
@@ -26,4 +28,7 @@ class Report < ApplicationRecord
             end
         data
     end
+
+    private
+
 end

@@ -30,7 +30,7 @@ class ReportsController < ApplicationController
 
             redirect_to report_path(@report)
         else
-            redirect_to root_path, alert: "Check if the file is a csv"
+            redirect_to root_path, alert: "This file is not a csv"
         end
     end
 

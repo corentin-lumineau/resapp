@@ -1,8 +1,23 @@
 .show-report-container {
     width: 100%;
-    padding: 10px;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
 }
 
+.show-report-sub-container {
+    margin: auto;
+    height: 400px;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.report-item {
+    padding-right: 5px;
+}
 .report-sub-item {
     padding: 5px;
 }
