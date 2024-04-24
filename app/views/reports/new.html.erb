@@ -3,10 +3,9 @@
     <% flash.each do |key, message|%>
         <div class="error"><%= message%></div>
     <%end%>
-
     <div class="form-container">
        <%= form_with model: @report, url: reports_path, class: "report-form" do |f| %>
-        <%= f.file_field :file, class:"" %>
+        <%= f.file_field :file %>
         <%= f.submit "Créer le rapport", class: "button-1"%>
        <%end%>
     </div>
