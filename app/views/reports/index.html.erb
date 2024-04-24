@@ -2,11 +2,11 @@
 <div class="index-container">
     <%if @reports.length != 0%>
         <ul class="reports-container">
-                <% @reports.each do |report| %>
-                    <%=link_to report_path(report) do %>
-                        <li class="item-reports"><%= report.name%></li>
-                        <%end%>
-                <%end%>
+            <% @reports.each do |report| %>
+                <%=link_to report_path(report) do %>
+                    <li class="item-reports"><%= report.name%></li>
+                    <%end%>
+            <%end%>
         </ul>
     <%else%>
         <h2>Vous n'avez aucun rapport pour le moment</h2>

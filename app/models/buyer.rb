@@ -4,4 +4,5 @@ class Buyer < ApplicationRecord
     has_many :report, through: :report_buyers
 
     validates :last_name, :first_name, :email, presence: { message: "-> check the buyers data" }
+    validates :email, uniqueness: true
 end

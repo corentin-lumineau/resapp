@@ -8,6 +8,7 @@ class Report < ApplicationRecord
     has_many :performances, through: :report_performances
 
     validates :name, presence: true
+    validate :file_attached
 
     def get_report_average_age
         ages = buyers.includes(:report_buyers).pluck(:age).compact
@@ -30,5 +31,12 @@ class Report < ApplicationRecord
     end
 
     private
+
+    # This method allows the applicaiton to add a control on the presence of a file.
+    # There is still some work to do in order to display the response in the view.
+    # The ParameterMissing error is handle in the ApplicationController.
+    def file_attached
+        errors.add(:file, :blank) unless file.attached?
+    end
 
 end

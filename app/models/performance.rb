@@ -15,8 +15,6 @@ class Performance < ApplicationRecord
   def self.average_cost
     all_performance_tickets = tickets
     all_prices = tickets.pluck(:price)
-
-    
   end
   
 end
