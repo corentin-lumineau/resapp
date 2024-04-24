@@ -1,0 +1,11 @@
+<div class="index-container">
+    <%=render "shared/navbar"%>
+        <ul class="reports-container">
+            <% @reports.each do |report| %>
+                <%=link_to report_path(report) do %>
+                    <li><%= report.name%></li>
+                    <%end%>
+            <%end%>
+        </ul>
+    </div>
+</div>

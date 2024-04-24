@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  reservations_count: 1
+  average_age: 1
+  cost_by_representation: 1
+
+two:
+  name: MyString
+  reservations_count: 1
+  average_age: 1
+  cost_by_representation: 1

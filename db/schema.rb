@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_23_080340) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_24_111021) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -35,8 +35,42 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_23_080340) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "performance_token"
+    t.datetime "date_end_performance"
     t.index ["performance_token"], name: "index_performances_on_performance_token", unique: true
     t.index ["spectacle_id"], name: "index_performances_on_spectacle_id"
+  end
+
+  create_table "report_buyers", force: :cascade do |t|
+    t.bigint "buyer_id", null: false
+    t.bigint "report_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["buyer_id"], name: "index_report_buyers_on_buyer_id"
+    t.index ["report_id"], name: "index_report_buyers_on_report_id"
+  end
+
+  create_table "report_performances", force: :cascade do |t|
+    t.bigint "performance_id", null: false
+    t.bigint "report_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["performance_id"], name: "index_report_performances_on_performance_id"
+    t.index ["report_id"], name: "index_report_performances_on_report_id"
+  end
+
+  create_table "report_reservations", force: :cascade do |t|
+    t.bigint "reservation_id", null: false
+    t.bigint "report_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["report_id"], name: "index_report_reservations_on_report_id"
+    t.index ["reservation_id"], name: "index_report_reservations_on_reservation_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reservations", force: :cascade do |t|
@@ -73,6 +107,12 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_23_080340) do
   end
 
   add_foreign_key "performances", "spectacles"
+  add_foreign_key "report_buyers", "buyers"
+  add_foreign_key "report_buyers", "reports"
+  add_foreign_key "report_performances", "performances"
+  add_foreign_key "report_performances", "reports"
+  add_foreign_key "report_reservations", "reports"
+  add_foreign_key "report_reservations", "reservations"
   add_foreign_key "reservations", "buyers"
   add_foreign_key "tickets", "performances"
   add_foreign_key "tickets", "reservations"
